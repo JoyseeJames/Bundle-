@@ -1,0 +1,211 @@
+<html>
+
+<head>
+  <title>Bundle & Save</title>
+  <style>
+        body {
+      font-family: sans-serif;
+      padding: 40px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2aa37b;
+    }
+
+    select {
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .bundle-option {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .bundle-option:hover,
+    .bundle-option.active {
+      border-color: #2aa37b;
+      background-color: #e6f7f3;
+    }
+
+    .bundle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .most-popular {
+      color: #2aa37b;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    .size-colour {
+      display: none;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .bundle-option:hover .size-colour,
+    .bundle-option.active .size-colour {
+      display: flex;
+    }
+
+    .free-shipping {
+      color: #2aa37b;
+      font-size: 0.9em;
+    }
+
+    .total {
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: right;
+    }
+
+    .off {
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .add-to-cart {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      background-color: #2aa37b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style> 
+</head>
+
+<body>
+  <h2>Bundle & Save</h2>
+
+  <div class="bundle-option" onclick="selectBundle(1)">
+    <label>
+      <input type="radio">
+      <span class="bundle-header">
+        <span>1 Pair - DKK 195.00</span>
+        <span class="off">50% OFF</span>
+      </span>
+    </label>
+    <div class="size-colour">
+      #1
+      <select>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+      </select>
+      <select>
+        <option>colour</option>
+      </select>
+    </div>
+    <div class="size-colour">
+      #2
+      <select>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+      </select>
+      <select>
+        <option>colour</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="bundle-option" onclick="selectBundle(2)">
+    <label>
+      <input type="radio">
+      <span class="bundle-header">
+        <span>2 Pair - DKK 345.00</span>
+        <span class="most-popular">Most Popular</span>
+      </span>
+      <div class="off">40% OFF</div>
+    </label>
+    <div class="size-colour">
+      #1
+      <select>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+      </select>
+      <select>
+        <option>colour</option>
+      </select>
+    </div>
+    <div class="size-colour">
+      #2
+      <select>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+      </select>
+      <select>
+        <option>colour</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="bundle-option" onclick="selectBundle(3)">
+    <label>
+      <input type="radio">
+      <span class="bundle-header">
+        <span>3 Pair - DKK 528.00</span>
+        <div class="off">60% OFF</div>
+      </span>
+    </label>
+    <div class="size-colour">
+      #1
+      <select>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+      </select>
+      <select>
+        <option>colour</option>
+      </select>
+    </div>
+    <div class="size-colour">
+      #2
+      <select>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+      </select>
+      <select>
+        <option>colour</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="free-shipping">Free 2 Day Shipping</div>
+  <div class="total">Total: DKK 360.00</div>
+  <button class="add-to-cart">+ Add to Cart</button>
+  <script> 
+    const bundles = document.querySelectorAll('.bundle-option');
+const totalDisplay = document.getElementById('total');
+
+function selectBundle(index) {
+  bundles.forEach((bundle, i) => {
+    bundle.classList.remove('active');
+    bundle.querySelector('input').checked = false;
+  });
+  const selected = bundles[index - 1];
+  selected.classList.add('active');
+  selected.querySelector('input').checked = true;
+}
+window.onload = function () {
+  selectBundle(2);
+};
+  </script>
+
+</body>
+</html>
